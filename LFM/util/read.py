@@ -107,7 +107,7 @@ def get_train_data(input_file,score_thr = 4):
 		else:
 			continue
 		sorted_neg_dict = sorted(neg_dict[userid],key=lambda element:element[1],reverse=True)[:data_num]
-		train_data += [(userid,value[1],0)for value in sorted_neg_dict]
+		train_data += [(userid,value[0],0) for value in sorted_neg_dict]
 		
 		if userid == '24':
 			print(len(pos_dict[userid]))
@@ -123,6 +123,6 @@ if __name__ == '__main__':
 	'''
 	train_data = get_train_data(r'../data/ml-latest-small/ratings.csv')
 	print(len(train_data))
-	print(train_data[:100])
+	print(train_data[:120])
 	
 	
